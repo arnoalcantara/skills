@@ -73,7 +73,7 @@ Objetivo: transformar o PRD em um plano de execução detalhado com milestones e
 Passo imediato: gerar o PLAN.md
 Skill: `/writing-plans`
 
-O `/writing-plans` lê o PRD e gera automaticamente o PLAN.md na raiz do projeto com tasks detalhadas, código real em cada step e testes embutidos.
+O `/writing-plans` lê o PRD e gera o plano de execução. **Importante:** ao acionar, instrua explicitamente: "salve o plano como `PLAN.md` na raiz do projeto" — o default da skill é outra pasta e precisa ser sobrescrito.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -142,7 +142,7 @@ Se escolher 3 → pergunte qual é o problema e recomende `/systematic-debugging
 | Preparação | Criar PRD | `/grill-me` → `/to-prd` |
 | Preparação | Gerar CLAUDE.md | Manual (Claude pode ajudar) |
 | Preparação | .gitignore + primeiro commit | Manual |
-| Planejamento | Gerar PLAN.md | `/writing-plans` |
+| Planejamento | Gerar PLAN.md | `/writing-plans` (salvar como `PLAN.md` na raiz) |
 | Execução | Criar branch isolada | `/using-git-worktrees` |
 | Execução | Implementar tasks | `/subagent-driven-development` ou `/executing-plans` |
 | Execução | Debugar problema | `/systematic-debugging` |

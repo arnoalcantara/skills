@@ -1,6 +1,6 @@
 ---
 name: projeto
-description: Use when starting or resuming any software development project - detects current phase, guides through the No Code Startup framework, and recommends the exact skill to use at each step.
+description: Use when starting or resuming a software development project, or when the user asks "o que faço agora?", "próximo passo?", "por onde começo?", "em que fase estou?", "what should I do now?", or any variation of asking for orientation during a development project.
 ---
 
 # /projeto — Guia de Desenvolvimento

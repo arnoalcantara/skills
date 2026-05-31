@@ -1,6 +1,6 @@
 ---
 name: projeto
-description: Use when starting or resuming a software development project, or when the user asks "o que faço agora?", "próximo passo?", "por onde começo?", "em que fase estou?", "what should I do now?", or any variation of asking for orientation during a development project.
+description: Use when starting or resuming a software development project, or when the user expresses an early-stage idea ("tenho uma ideia", "vamos fazer um brainstorm", "estou pensando em criar uma plataforma", "quero discutir um projeto", "tenho uma ideia de produto"), or asks "o que faço agora?", "próximo passo?", "por onde começo?", "em que fase estou?", "what should I do now?", or any variation of asking for orientation during a development project.
 ---
 
 # /projeto — Guia de Desenvolvimento
@@ -16,6 +16,9 @@ Você é um guia de processo para projetos de software. Quando acionado, detecta
 Examine o estado do projeto olhando os arquivos locais. Não dependa apenas do git — arquivos não commitados também contam.
 
 Verifique nesta ordem:
+
+### Checklist da Fase 0 (Ideação)
+- [ ] O usuário só tem uma ideia inicial, sem PRD nem CLAUDE.md, e está pedindo pra discutir/brainstorming? (frases como "tenho uma ideia", "vamos fazer um brainstorm", "estou pensando em criar...")
 
 ### Checklist da Fase 1 (Preparação)
 - [ ] Existe arquivo de PRD? (procure por `PRD.md`, `prd.md`, ou qualquer arquivo com "prd" ou "product" no nome na raiz)
@@ -34,6 +37,24 @@ Verifique nesta ordem:
 ---
 
 ## Passo 2 — Determinar o estado e agir
+
+### Se o usuário está na Fase 0 (só tem ideia)
+
+Sequência: `/brainstorming` → `/grill-me` → `/to-prd` → segue para Fase 1.
+
+```
+📍 Você está na Fase 0 — Ideação
+
+Sua ideia ainda não virou produto definido. Antes de codar, vamos amadurecê-la em três etapas:
+
+1. /brainstorming — explora a ideia, propõe 2-3 abordagens, gera design inicial
+2. /grill-me — interroga o design pra encontrar furos e premissas escondidas
+3. /to-prd — transforma a conversa em PRD estruturado
+
+Posso começar agora pelo /brainstorming?
+```
+
+Ao receber confirmação, invocar `/brainstorming` e conduzir até o design ficar pronto. Depois oferecer `/grill-me` pra stress-test. Só depois `/to-prd`.
 
 ### Se a Fase 1 está incompleta
 
@@ -122,7 +143,7 @@ Se escolher 3 → pergunte qual é o problema e recomende `/systematic-debugging
 ## Referência: Instruções por item faltante da Fase 1
 
 **PRD ausente:**
-> Use `/grill-me` para amadurecer a ideia em conversa. Quando terminar, use `/to-prd` para transformar a conversa em PRD estruturado. O arquivo será salvo automaticamente.
+> Sequência recomendada: `/brainstorming` (gera design inicial a partir da ideia) → `/grill-me` (stress-test do design) → `/to-prd` (consolida em PRD estruturado). Se o usuário já tem a ideia bem formada, pode pular o brainstorming e ir direto pro grill-me.
 
 **CLAUDE.md ausente:**
 > Crie um `CLAUDE.md` na raiz do projeto com: objetivo do projeto, stack tecnológica, convenções de código, e quaisquer restrições específicas. Posso gerar um para você se quiser — me diga o que o projeto faz.
@@ -139,7 +160,8 @@ Se escolher 3 → pergunte qual é o problema e recomende `/systematic-debugging
 
 | Fase | Etapa | Skill |
 |------|-------|-------|
-| Preparação | Criar PRD | `/grill-me` → `/to-prd` |
+| Ideação | Amadurecer ideia inicial | `/brainstorming` → `/grill-me` → `/to-prd` |
+| Preparação | Criar PRD (ideia já formada) | `/grill-me` → `/to-prd` |
 | Preparação | Gerar CLAUDE.md | Manual (Claude pode ajudar) |
 | Preparação | .gitignore + primeiro commit | Manual |
 | Planejamento | Gerar PLAN.md | `/writing-plans` (salvar como `PLAN.md` na raiz) |
